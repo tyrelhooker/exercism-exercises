@@ -25,3 +25,7 @@ export const encode = (decodedString) => {
   }
   return encodedString;
 };
+
+export const decode = (encodedString) => {
+  
+}
