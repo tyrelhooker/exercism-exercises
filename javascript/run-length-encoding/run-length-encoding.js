@@ -24,25 +24,26 @@ export const encode = (decodedString) => {
       count = 1;
     }
   }
+  
   return encodedString;
-}
+};
 
 export const decode = (encodedString) => {
   let decodedString = '';
-  let a = 1;
-  let b;
+  let charMultiplier = 1;
+  let charLetter;
 
   for (let i = 0; i < encodedString.length; i++) {
     if (Number(encodedString[i])) {
-      if (a === 1) {
-        a = encodedString[i];
+      if (charMultiplier === 1) {
+        charMultiplier = encodedString[i];
       } else {
-        a = a + encodedString[i];
+        charMultiplier = charMultiplier + encodedString[i];
       }
     } else {
-      b = encodedString[i];
-      decodedString += b.repeat(a);
-      a = 1;
+      charLetter = encodedString[i];
+      decodedString += charLetter.repeat(charMultiplier);
+      charMultiplier = 1;
     }
   }
 
