@@ -1,3 +1,4 @@
+
 export const encode = (decodedString) => {
   let strChar1 = decodedString[0];
   let strChar2 = '';
@@ -24,8 +25,27 @@ export const encode = (decodedString) => {
     }
   }
   return encodedString;
-};
+}
 
 export const decode = (encodedString) => {
-  
-}
+  let decodedString = '';
+  let a = 1;
+  let b;
+
+  for (let i = 0; i < encodedString.length; i++) {
+    if (Number(encodedString[i])) {
+      if (a === 1) {
+        a = encodedString[i];
+      } else {
+        a = a + encodedString[i];
+      }
+    } else {
+      b = encodedString[i];
+      decodedString += b.repeat(a);
+      a = 1;
+    }
+  }
+
+  return decodedString;  
+};
+
