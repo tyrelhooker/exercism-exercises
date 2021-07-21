@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = { 
   presets: [
     [
       '@babel/env',
@@ -8,7 +8,7 @@ module.exports = {
         },
         useBuiltIns: false,
       },
-
     ],
   ],
+  plugins: ['@babel/plugin-syntax-bigint'],
 };

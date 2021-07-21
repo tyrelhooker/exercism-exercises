@@ -1,4 +1,3 @@
-
 export const encode = (decodedString) => {
   let strChar1 = decodedString[0];
   let strChar2 = '';
