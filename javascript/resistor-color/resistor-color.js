@@ -2,4 +2,4 @@ let COLORS = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue', 'vio
 
 let colorCode = (color) => COLORS.indexOf(color);
 
-export default { colorCode, COLORS };
+module.exports = { colorCode, COLORS };
