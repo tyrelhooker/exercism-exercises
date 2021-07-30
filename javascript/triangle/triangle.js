@@ -14,7 +14,17 @@ export class Triangle {
   }
 
   get isIsosceles() {
-    throw new Error('Remove this statement and implement this function');
+    const twoSidesEqual = this.sides.filter((elem, index) => {
+      return this.sides.indexOf(elem) !== index
+    })
+
+    console.log(twoSidesEqual);
+
+    if (twoSidesEqual[0]) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   get isScalene() {
@@ -22,6 +32,8 @@ export class Triangle {
   }
 }
 
+// const triangle = new Triangle(2, 3, 4);
+// console.log(triangle.isIsosceles);
 // const triangle = new Triangle(0, 0, 0);
 // const triangle = new Triangle(2, 2, 2);
 // const triangle = new Triangle(2, 3, 4);
