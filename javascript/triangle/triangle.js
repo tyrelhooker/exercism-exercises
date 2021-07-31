@@ -1,40 +1,36 @@
-//
-// This is only a SKELETON file for the 'Triangle' exercise. It's been provided as a
-// convenience to get you started writing code faster.
-//
-
 export class Triangle {
   constructor(...sides) {
     this.sides = sides;
   }
 
   get isEquilateral() {
-    return this.sides.every((elem, i, arr) => elem === arr[0] && elem !== 0)
+    return this.sides.every((elem, index, arr) => elem === arr[0] && elem !== 0)
     
   }
 
   get isIsosceles() {
-    const twoSidesEqual = this.sides.filter((elem, index) => {
-      return this.sides.indexOf(elem) !== index
-    })
+    let [side1, side2, side3] = this.sides;
 
-    console.log(twoSidesEqual);
+    const twoSidesEqual = this.sides.some((elem, index) => this.sides.indexOf(elem) !== index);
 
-    if (twoSidesEqual[0]) {
+    if (twoSidesEqual && (side1 + side2 > side3 && side1 + side3 > side2 && side2 + side3 > side1)) {
       return true;
-    } else {
+    }
+    else {
       return false;
     }
   }
 
   get isScalene() {
-    throw new Error('Remove this statement and implement this function');
+    let [side1, side2, side3] = this.sides;
+
+    const noSidesEqual = !this.sides.some((elem, index) => this.sides.indexOf(elem) !== index);
+
+    if (noSidesEqual && (side1 + side2 > side3 && side1 + side3 > side2 && side2 + side3 > side1)) {
+      return true;
+    } 
+    else {
+      return false
+    }
   }
 }
-
-// const triangle = new Triangle(2, 3, 4);
-// console.log(triangle.isIsosceles);
-// const triangle = new Triangle(0, 0, 0);
-// const triangle = new Triangle(2, 2, 2);
-// const triangle = new Triangle(2, 3, 4);
-// console.log(triangle.isEquilateral);
